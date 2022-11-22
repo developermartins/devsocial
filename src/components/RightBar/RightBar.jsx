@@ -1,4 +1,5 @@
 import React from 'react';
+import './RightBar/scss';
 
 const RightBar = () => {
   return (
