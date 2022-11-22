@@ -38,7 +38,7 @@ function App() {
       return <Navigate to="/login" />
     };
 
-    return children
+    return children;
   };
 
   const router = createBrowserRouter([
