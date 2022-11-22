@@ -23,6 +23,7 @@ const Navbar = () => {
         <DarkModeOutlinedIcon />
         <GridViewOutlinedIcon />
         <div className='search'>
+          <SearchOutlinedIcon />
           <input type="text" placeholder='Search...' />
         </div>
       </div>
@@ -31,7 +32,7 @@ const Navbar = () => {
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
         <div className='user'>
-          {/* <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" /> */}
+          <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" />
           <span>DevMarts</span>
         </div>
       </div>
