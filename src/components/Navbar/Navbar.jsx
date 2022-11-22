@@ -19,8 +19,22 @@ const Navbar = () => {
         <Link to="/" style={{ textDecoration: "none" }}>
           <span>DevSocial</span>
         </Link>
+        <HomeOutlinedIcon />
+        <DarkModeOutlinedIcon />
+        <GridViewOutlinedIcon />
+        <div className='search'>
+          <input type="text" placeholder='Search...' />
+        </div>
       </div>
-      <div className="right"></div>
+      <div className="right">
+        <PersonOutlinedIcon />
+        <EmailOutlinedIcon />
+        <NotificationsOutlinedIcon />
+        <div className='user'>
+          {/* <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" /> */}
+          <span>DevMarts</span>
+        </div>
+      </div>
     </nav>
   );
 };
