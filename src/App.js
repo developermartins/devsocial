@@ -9,6 +9,12 @@ import {
 
 function App() {
 
+  const Layout = () => {
+    return (
+      <div></div>
+    );
+  };
+
   const router = createBrowserRouter([
     {
       path: "/login",
@@ -25,6 +31,6 @@ function App() {
        <RouterProvider router={router} />
     </div>
   );
-}
+};
 
 export default App;
