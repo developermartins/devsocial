@@ -21,7 +21,7 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           <div className="user">
-            {/* <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" /> */}
+            <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" />
             <span>DevMarts</span>
           </div>
           <div className="item">
@@ -44,6 +44,11 @@ const LeftBar = () => {
             <img src={ Memories } alt="" />
             <span>Memories</span>
           </div>
+        </div>
+        <hr />
+        <div className="menu">
+          <span>Your shortcuts</span>
+
           <div className="item">
             <img src={ Events } alt="" />
             <span>Events</span>
@@ -64,6 +69,11 @@ const LeftBar = () => {
             <img src={ Messages } alt="" />
             <span>Messages</span>
           </div>
+        </div>
+        <hr />
+        <div className="menu">
+          <span>Others</span>
+
           <div className="item">
             <img src={ Tutorials } alt="" />
             <span>Tutorials</span>
