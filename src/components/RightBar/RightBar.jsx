@@ -68,6 +68,73 @@ const RightBar = () => {
             <span>1 min ago</span>
           </div>
         </div>
+
+        <div className="item">
+          <span>Online Friends</span>
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+
+          <div className="user">
+            <div className="userInfo">
+              <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User avatar" />
+                <div className='online' />
+                <span>Sr.Doe</span>
+            </div>
+          </div>
+        </div>
       </div>
    </aside>
   );
