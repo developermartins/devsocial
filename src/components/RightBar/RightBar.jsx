@@ -4,7 +4,7 @@ import './RightBar.scss';
 const RightBar = () => {
   return (
    <aside className="rightBar">
-    
+      RightBar
    </aside>
   );
 };
