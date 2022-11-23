@@ -3,7 +3,9 @@ import './RightBar.scss';
 
 const RightBar = () => {
   return (
-    <div>RightBar</div>
+   <aside className="rightBar">
+    
+   </aside>
   );
 };
 
