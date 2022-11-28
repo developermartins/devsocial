@@ -1,10 +1,10 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ThemifyContext = createContext();
 
 export const ThemifyContextProvider = ({ children }) => {
      const [theme, setTheme] = useState(
-          localStorage.getItem("darkMode") || false
+          JSON.parse(localStorage.getItem("darkMode")) || false
      );
 
      const toggleTheme = () => {
@@ -13,7 +13,7 @@ export const ThemifyContextProvider = ({ children }) => {
 
      useEffect(() => {
           localStorage.setItem("darkMode", theme)
-     }, [darkMode]);
+     }, [theme]);
 
      return (
           <ThemifyContext.Provider value={{  theme, toggleTheme  }}>

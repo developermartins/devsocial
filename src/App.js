@@ -8,6 +8,8 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
+import { useContext } from "react";
+import { ThemifyContext } from "./context/themifyContext";
 
 import Navbar from "./components/Navbar/Navbar";
 import LeftBar from "./components/LeftBar/LeftBar";
@@ -17,11 +19,13 @@ import Profile from "./pages/profile/Profile";
 
 function App() {
 
+  const { theme } = useContext(ThemifyContext);
+
   const currentUser = true;
 
   const Layout = () => {
     return (
-      <section className="theme-dark">
+      <section className={`theme-${theme ? "dark" : "light"}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
             <LeftBar />

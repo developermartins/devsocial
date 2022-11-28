@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemifyContext } from '../../context/themifyContext';
 
 import './Navbar.scss';
 
@@ -13,6 +14,9 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 const Navbar = () => {
+
+  const { toggleTheme, theme } = useContext(ThemifyContext);
+
   return (
     <nav className='navbar'>
       <div className="left">
@@ -20,7 +24,13 @@ const Navbar = () => {
           <span>DevSocial</span>
         </Link>
         <HomeOutlinedIcon />
-        <DarkModeOutlinedIcon />
+        { 
+          theme
+          ?
+          <WbSunnyOutlinedIcon onClick={ toggleTheme } /> 
+          : 
+          <DarkModeOutlinedIcon onClick={ toggleTheme } />
+        }
         <GridViewOutlinedIcon />
         <div className='search'>
           <SearchOutlinedIcon />
