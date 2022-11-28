@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ThemifyContext } from '../../context/themifyContext';
+import { AuthContext } from '../../context/authContext';
 
 import './Navbar.scss';
 
@@ -16,6 +17,8 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 const Navbar = () => {
 
   const { toggleTheme, theme } = useContext(ThemifyContext);
+
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <nav className='navbar'>
@@ -42,8 +45,8 @@ const Navbar = () => {
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
         <div className='user'>
-          <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" />
-          <span>DevMarts</span>
+          <img src={ currentUser.profilePicture } alt="User photo" />
+          <span>{ currentUser.name }</span>
         </div>
       </div>
     </nav>

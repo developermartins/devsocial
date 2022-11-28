@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/authContext';
 import './LeftBar.scss';
 
 import Friends from "../../assets/1.png";
@@ -16,13 +17,16 @@ import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
 
 const LeftBar = () => {
+
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <aside className="leftBar">
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src="https://avatars.githubusercontent.com/u/97063329?v=4" alt="User photo" />
-            <span>DevMarts</span>
+            <img src={ currentUser.profilePicture } alt="User photo" />
+            <span>{ currentUser.name }</span>
           </div>
           <div className="item">
             <img src={ Friends } alt="" />

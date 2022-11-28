@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { ThemifyContext } from "./context/themifyContext";
+import { AuthContext } from "./context/authContext";
 
 import Navbar from "./components/Navbar/Navbar";
 import LeftBar from "./components/LeftBar/LeftBar";
@@ -20,8 +21,8 @@ import Profile from "./pages/profile/Profile";
 function App() {
 
   const { theme } = useContext(ThemifyContext);
-
-  const currentUser = true;
+  
+  const { currentUser } = useContext(AuthContext);
 
   const Layout = () => {
     return (
