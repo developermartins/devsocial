@@ -1,6 +1,5 @@
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import ReactDOM from "react-dom/client";
 
 import {
   createBrowserRouter,
@@ -22,7 +21,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <section>
+      <section className="theme-dark">
         <Navbar />
         <div style={{ display: "flex" }}>
             <LeftBar />
