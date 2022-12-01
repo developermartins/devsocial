@@ -25,13 +25,13 @@ const Posts = () => {
      ];
 
   return (
-    <div>
+    <section className='posts'>
           { posts.map((post) => (
                <div className='post'>
                     <Post post={ post } key={ post.id } />
                </div>
           )) }
-    </div>
+    </section>
   );
 };
 

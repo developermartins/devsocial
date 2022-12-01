@@ -12,6 +12,7 @@
           color: themed("textColor");
           position: sticky;
           top: 0;
+          z-index: 999;
 
           .left {
                display: flex;

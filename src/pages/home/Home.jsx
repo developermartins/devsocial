@@ -1,13 +1,13 @@
 import React from 'react';
 import Stories from '../../components/stories/Stories';
-import Post from '../../components/Post/Post';
+import Posts from '../../components/Posts/Posts';
 import '../home/Home.scss';
 
 const Home = () => {
   return (
     <section className="home">
       <Stories />
-      <Post />
+      <Posts />
     </section>
   );
 };
