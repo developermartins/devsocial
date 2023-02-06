@@ -16,6 +16,10 @@
           @include tablet {
                display: none;
           }
+
+          @include laptop {
+               display: none;                          
+          }
      
           &::-webkit-scrollbar {
                display: none;

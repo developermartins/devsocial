@@ -12,5 +12,9 @@
           @include tablet {
                padding: 20px;
           }
+
+          @include laptop {
+               padding: 20px;
+          }
      }
 }
