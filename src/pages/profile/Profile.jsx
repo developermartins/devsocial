@@ -48,8 +48,8 @@ const Profile = () => {
                 <LanguageIcon />
                 <span>lmarts.dev</span>
               </div>
-              <button>Follow</button>
             </div>
+              <button>Follow</button>
           </div>
           <div className="right">
             <EmailOutlinedIcon />
