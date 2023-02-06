@@ -50,8 +50,8 @@ const Post = ({ post }) => {
             <ShareOutlinedIcon />
             Share
           </div>
-          { openComments && <Comments /> }
         </div>
+          { openComments && <Comments /> }
       </div>
     </section>
   );
