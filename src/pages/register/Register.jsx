@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { registerUser } from '../../api/register';
 import './Register.scss';
 
 const Register = () => {
@@ -11,17 +12,22 @@ const Register = () => {
     name: "",
   });
 
-  const [errors, setErrors] = useState(false);
+  const [error, setErrors] = useState(null);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
 
+    try {
+      await registerUser(inputs)
+    } catch (err) {
+      setErrors(err.response.data);
+    };
 
-  }
+  };
 
   return (
     <section className="register">
@@ -44,6 +50,9 @@ const Register = () => {
             <input type="email" placeholder='Email' name='email' onChange={ handleChange } />
             <input type="password" placeholder='Password' name='password' onChange={ handleChange } />
             <input type="text" placeholder='Name' name='name' onChange={ handleChange } />
+
+            { error && <p>{ error }</p> }
+
             <button onClick={ handleClick }>Register</button>
           </form>
         </div>
