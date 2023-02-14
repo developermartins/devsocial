@@ -2,12 +2,18 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 
 import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Outlet,
   Navigate,
 } from "react-router-dom";
+
 import { useContext } from "react";
 import { ThemifyContext } from "./context/themifyContext";
 import { AuthContext } from "./context/authContext";
@@ -24,18 +30,22 @@ function App() {
   
   const { currentUser } = useContext(AuthContext);
 
+  const queryClient = new QueryClient()
+
   const Layout = () => {
     return (
-      <section className={`theme-${theme ? "dark" : "light"}`}>
-        <Navbar />
-        <div style={{ display: "flex" }}>
-            <LeftBar />
-            <div style={{ flex: 6 }}>
-              <Outlet />
-            </div>
-            <RightBar />
-        </div>
-      </section>
+      <QueryClientProvider client={ queryClient }>
+        <section className={`theme-${theme ? "dark" : "light"}`}>
+          <Navbar />
+          <div style={{ display: "flex" }}>
+              <LeftBar />
+              <div style={{ flex: 6 }}>
+                <Outlet />
+              </div>
+              <RightBar />
+          </div>
+        </section>
+      </QueryClientProvider>
     );
   };
 
