@@ -2,7 +2,14 @@ import React from 'react';
 import Post from '../Post/Post';
 import './Posts.scss';
 
+import {
+  useQuery,
+} from '@tanstack/react-query'
+
 const Posts = () => {
+
+
+  const { isLoading, error, data } = useQuery(['posts'], () => )
 
      const posts = [
           {
