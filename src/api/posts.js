@@ -5,3 +5,9 @@ export const getPosts = async () => {
 
      return res.data;
 };
+
+export const addPost = async (newPost) => {
+     const res = await api.post("/posts", newPost);
+
+     return res.data;
+};
