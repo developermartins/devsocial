@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
 import { useQuery } from '@tanstack/react-query'
+import { getComments } from '../../api/comments';
 
 import './comments.scss';
-import { getComments } from '../../api/comments';
+import moment from 'moment';
 
 const Comments = ({ postId }) => {
 
@@ -40,14 +41,14 @@ const Comments = ({ postId }) => {
           <input type="text" placeholder='Write a comment' />
           <button>Send</button>
      </div>
-     { comments.map((comment) => (
+     { isLoading ? "Loading..." : data && data.map((comment) => (
           <div key={ comment.id } className='comment'>
                <img src={ comment.profilePicture } alt="Profile picture" />
                <div className="info">
                     <span>{ comment.name }</span>
                     <p>{ comment.desc }</p>
                </div>
-               <span className='date'>1 hour ago</span>
+               <span className='date'>{moment(comment.create_time).fromNow()}</span>
           </div>
      )) }
     </section>

@@ -52,7 +52,7 @@ const Post = ({ post }) => {
             Share
           </div>
         </div>
-          { openComments && <Comments /> }
+          { openComments && <Comments postId={ post.id } /> }
       </div>
     </section>
   );
