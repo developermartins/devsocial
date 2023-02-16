@@ -45,7 +45,7 @@ const Post = ({ post }) => {
         <div className="info">
           <div className="item">
             {  
-              liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />
+              liked ? <FavoriteOutlinedIcon style={{ color:"red" }} /> : <FavoriteBorderOutlinedIcon />
             }
             12 likes
           </div>
