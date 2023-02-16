@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Post.scss';
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -6,22 +6,23 @@ import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-
-import { Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 import moment from 'moment';
-import { getComments } from '../../api/comments';
+
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { getLikes } from '../../api/likes';
+import { AuthContext } from '../../context/authContext';
 
 const Post = ({ post }) => {
 
   const [openComments, setOpenComments] = useState(false);
 
-  const { isLoading, error, data } = useQuery(['comments'], () => (
-    getComments(post.id)
-  ));
+  const { currentUser } = useContext(AuthContext);
 
-  const liked = false;
+  const { isLoading, error, data } = useQuery(['likes', post.id], () => (
+    getLikes(post.id)
+  ));
 
   return (
     <section className="post">
@@ -44,14 +45,19 @@ const Post = ({ post }) => {
         </div>
         <div className="info">
           <div className="item">
-            {  
-              liked ? <FavoriteOutlinedIcon style={{ color:"red" }} /> : <FavoriteBorderOutlinedIcon />
+
+            {
+              data?.includes(currentUser.id) ? (
+                <FavoriteOutlinedIcon style={{ color:"red" }} />
+              ) : (
+                <FavoriteBorderOutlinedIcon />
+              )
             }
-            12 likes
+            { data?.length } likes
           </div>
           <div className="item" onClick={ () => setOpenComments(!openComments) }>
             <TextsmsOutlinedIcon />
-            { data?.length ? `${data.length} comments` : '0 comments' }
+            12 comments
           </div>
           <div className="item">
             <ShareOutlinedIcon />

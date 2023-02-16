@@ -12,7 +12,7 @@ const Comments = ({ postId }) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  const { isLoading, error, data } = useQuery(['comments'], () => (
+  const { isLoading, error, data } = useQuery(['comments', postId], () => (
     getComments(postId)
   ));
 
