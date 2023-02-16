@@ -6,12 +6,24 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addPost } from "../../api/posts";
+import { uploadFile } from "../../api/upload";
 
 const Share = () => {
-
   const { currentUser } = useContext(AuthContext);
   const [img, setImg] = useState('');
   const [postContent, setPostContent] = useState('');
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", img);
+      const res = await uploadFile(formData);
+
+      return res.data;
+    } catch(err) {
+      console.log(err);
+    };
+  };
 
   const queryClient = new useQueryClient()
 
