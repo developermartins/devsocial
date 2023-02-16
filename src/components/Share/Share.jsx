@@ -36,10 +36,14 @@ const Share = () => {
      },
    });
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
      e.preventDefault();
 
-     mutation.mutate({ postContent, img });
+     let imgUrl = "";
+
+     if (img) imgUrl = await upload();
+
+     mutation.mutate({ postContent, img: imgUrl });
   };
 
   return (
