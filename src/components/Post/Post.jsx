@@ -10,10 +10,16 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 import moment from 'moment';
+import { getComments } from '../../api/comments';
+import { useQuery } from '@tanstack/react-query';
 
 const Post = ({ post }) => {
 
   const [openComments, setOpenComments] = useState(false);
+
+  const { isLoading, error, data } = useQuery(['comments'], () => (
+    getComments(post.id)
+  ));
 
   const liked = false;
 
@@ -45,7 +51,7 @@ const Post = ({ post }) => {
           </div>
           <div className="item" onClick={ () => setOpenComments(!openComments) }>
             <TextsmsOutlinedIcon />
-            12 comments
+            { data?.length ? `${data.length} comments` : '0 comments' }
           </div>
           <div className="item">
             <ShareOutlinedIcon />
