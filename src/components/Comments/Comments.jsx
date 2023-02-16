@@ -1,10 +1,17 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
-import './comments.scss';
+import { useQuery } from '@tanstack/react-query'
 
-const Comments = () => {
+import './comments.scss';
+import { getComments } from '../../api/comments';
+
+const Comments = ({ postId }) => {
 
   const { currentUser } = useContext(AuthContext);
+
+  const { isLoading, error, data } = useQuery(['comments'], () => (
+    getComments(postId)
+  ));
 
   //Temporary
   const comments = [
