@@ -44,6 +44,9 @@ const Share = () => {
      if (img) imgUrl = await upload();
 
      mutation.mutate({ postContent, img: imgUrl });
+
+     setPostContent("");
+     setImg(null);
   };
 
   return (
@@ -56,12 +59,13 @@ const Share = () => {
               type="text"
               placeholder={`What's on your mind ${currentUser.name}?`}
               onChange={ (e) => setPostContent(e.target.value) }
+              value={ postContent }
             />
           </div>
           <div className="right">
-            {/* {file && (
-              <img className="file" alt="" src="" />
-            )} */}
+            {img && (
+              <img className="file" alt="post-file" src={URL.createObjectURL(img)} />
+            )}
           </div>
         </div>
         <hr />
