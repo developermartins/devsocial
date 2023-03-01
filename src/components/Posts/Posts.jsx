@@ -5,10 +5,10 @@ import './Posts.scss';
 import { useQuery } from '@tanstack/react-query'
 import { getPosts } from '../../api/posts';
 
-const Posts = () => {
+const Posts = ({ userId }) => {
 
   const { isLoading, error, data } = useQuery(['posts'], () => (
-    getPosts()
+    getPosts(userId)
   ))
 
   return (
