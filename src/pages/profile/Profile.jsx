@@ -27,6 +27,14 @@ const Profile = () => {
     getUser(userId)
   ));
 
+  const { data: relationshipData } = useQuery(['relationship'], () => (
+    getUser(userId)
+  ));
+
+  const handleFollow = () => {
+
+  };
+
   return (
     <section className='profile'>
      { isLoading ? "Loading" : 
@@ -77,7 +85,7 @@ const Profile = () => {
                 { userId === currentUser.id ? (
                   <button>Update</button>
                 ) : (
-                  <button>Follow</button>
+                  <button onClick={ handleFollow }>Follow</button>
                 )}
             </div>
             <div className="right">
