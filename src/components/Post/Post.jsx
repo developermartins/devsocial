@@ -10,8 +10,8 @@ import Comments from '../Comments/Comments';
 import moment from 'moment';
 
 import { Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { getLikes } from '../../api/likes';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { addLike, getLikes, removeLike } from '../../api/likes';
 import { AuthContext } from '../../context/authContext';
 
 const Post = ({ post }) => {
@@ -23,6 +23,23 @@ const Post = ({ post }) => {
   const { isLoading, error, data } = useQuery(['likes', post.id], () => (
     getLikes(post.id)
   ));
+
+  const queryClient = new useQueryClient();
+
+  const mutation = useMutation((liked) => {
+    if (liked) return removeLike(post.id);
+    return addLike(post.id)
+    
+  }, {
+     onSuccess: () => {
+       // Invalidate and refetch
+       queryClient.invalidateQueries(['likes'])
+     },
+  });
+
+  const handleLike = (e) => {
+    mutation.mutate(data.includes(currentUser.id))
+  };
 
   return (
     <section className="post">
@@ -47,10 +64,10 @@ const Post = ({ post }) => {
           <div className="item">
 
             {
-              data?.includes(currentUser.id) ? (
-                <FavoriteOutlinedIcon style={{ color:"red" }} />
+              isLoading ? "Loading" : data?.includes(currentUser.id) ? (
+                <FavoriteOutlinedIcon style={{ color: "red" }} onClick={ handleLike } />
               ) : (
-                <FavoriteBorderOutlinedIcon />
+                <FavoriteBorderOutlinedIcon onClick={ handleLike } />
               )
             }
             { data?.length } likes

@@ -5,3 +5,16 @@ export const getLikes = async (postId) => {
 
      return res.data;
 };
+
+export const addLike = async (postId) => {
+     const res = await api.post(`/likes?postId=${postId}`);
+
+     return res.data;
+};
+
+export const removeLike = async (postId) => {
+
+     const res = await api.delete(`/likes?postId=${postId}`);
+
+     return res.data;
+};
