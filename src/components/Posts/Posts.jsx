@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Post from '../Post/Post';
 import './Posts.scss';
 
 import { useQuery } from '@tanstack/react-query'
 import { getPosts } from '../../api/posts';
+import { AuthContext } from '../../context/authContext';
 
 const Posts = ({ userId }) => {
 
+  const { currentUser } = useContext(AuthContext);
+
   const { isLoading, error, data } = useQuery(['posts'], () => (
-    getPosts(userId)
+    !userId ? getPosts(currentUser.id) : getPosts(userId)
   ))
 
   return (

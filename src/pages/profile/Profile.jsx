@@ -10,16 +10,18 @@ import LanguageIcon from "@mui/icons-material/Language";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Posts from "../../components/Posts/Posts";
+import Update from '../../components/update/Update';
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getUser } from '../../api/user';
 import { useLocation } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/authContext';
 import { addRelationship, deleteRelationship, getRelationships } from '../../api/relationships';
 
 const Profile = () => {
 
+  const [openUpdate, setOpenUpdate] = useState(false);
   const { currentUser } = useContext(AuthContext);
 
   const userId = parseInt(useLocation().pathname.split('/')[2]);
@@ -31,8 +33,6 @@ const Profile = () => {
   const { isLoading: relationshipLoading, data: relationshipData } = useQuery(['relationship'], () => (
     getRelationships(userId)
   ));
-
-    console.log(relationshipData)
 
     const queryClient = new useQueryClient();
 
@@ -100,7 +100,7 @@ const Profile = () => {
                 </div>
               </div>
                 { relationshipLoading ? "Loading" : userId === currentUser.id ? (
-                  <button>Update</button>
+                  <button onClick={() => setOpenUpdate(true)}>Update</button>
                 ) : (
                   <button onClick={ handleFollow }>
                     { 
@@ -118,6 +118,7 @@ const Profile = () => {
         </div>
       </> 
       }
+      { openUpdate && <Update setOpenUpdate={ setOpenUpdate } /> }
     </section>
   );
 };
