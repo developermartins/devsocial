@@ -16,6 +16,7 @@ import { getUser } from '../../api/user';
 import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
+import { addRelationship, deleteRelationship, getRelationships } from '../../api/relationships';
 
 const Profile = () => {
 
@@ -27,13 +28,29 @@ const Profile = () => {
     getUser(userId)
   ));
 
-  const { data: relationshipData } = useQuery(['relationship'], () => (
-    getUser(userId)
+  const { isLoading: relationshipLoading, data: relationshipData } = useQuery(['relationship'], () => (
+    getRelationships(userId)
   ));
 
-  const handleFollow = () => {
+    console.log(relationshipData)
 
-  };
+    const queryClient = new useQueryClient();
+
+    const mutation = useMutation((following) => {
+      if (following) return deleteRelationship(userId);
+      return addRelationship(userId);
+      
+    }, {
+       onSuccess: () => {
+         // Invalidate and refetch
+         queryClient.invalidateQueries(['relationship'])
+       },
+    });
+  
+    const handleFollow = (e) => {
+      mutation.mutate(relationshipData.includes(currentUser.id))
+    };
+  
 
   return (
     <section className='profile'>
@@ -82,10 +99,14 @@ const Profile = () => {
                   <span>{ data?.website || '' }</span>
                 </div>
               </div>
-                { userId === currentUser.id ? (
+                { relationshipLoading ? "Loading" : userId === currentUser.id ? (
                   <button>Update</button>
                 ) : (
-                  <button onClick={ handleFollow }>Follow</button>
+                  <button onClick={ handleFollow }>
+                    { 
+                      relationshipData.includes(currentUser.id) ? "Following" : "Follow"
+                    }
+                  </button>
                 )}
             </div>
             <div className="right">
