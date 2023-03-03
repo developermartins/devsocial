@@ -96,7 +96,7 @@ const navbar = () => {
                 width: "150px",
                 borderRadius: "0.25rem",
                 p: "0.25rem 1rem",
-                "& .MuiSvgIcon-root:" {
+                "& .MuiSvgIcon-root": {
                   pr: "0.25rem",
                   width: "3rem",
                 },
@@ -107,7 +107,14 @@ const navbar = () => {
               }}
               input={ <InputBase /> }
             >
-              <MenuItem value={ fullName }></MenuItem>
+              <MenuItem value={ fullName }>
+                <Typography>{fullName}</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => dispatch(setLogout())}
+              >
+                Log Out
+              </MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
