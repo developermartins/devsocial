@@ -1,10 +1,9 @@
 const loginPage = () => {
      return (
-       <section>
-            login
-       </section>
-     )
-   }
+          <section>
+               login
+          </section>
+     );
+};
    
-   export default loginPage;
-   
+export default loginPage;
