@@ -26,7 +26,7 @@ import { useNavigate } from "react-router-dom";
 
 import FlexBetween from "../../components/FlexBetween";
 
-const navbar = () => {
+const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +40,10 @@ const navbar = () => {
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  const fullName = `${user.firstName} ${user.lastName}`;
+  // const fullName = `${user.firstName} ${user.lastName}`;
+
+  // Temp
+  const fullName = "DevMarts";
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={ alt }>
@@ -204,5 +207,5 @@ const navbar = () => {
   );
 };
   
-export default navbar;
+export default Navbar;
   
