@@ -3,7 +3,7 @@ const homePage = () => {
     <section>
     	Homepage
     </section>
-  )
-}
+  );
+};
 
 export default homePage;

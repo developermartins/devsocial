@@ -1,9 +1,9 @@
 const loginPage = () => {
-     return (
-          <section>
-               login
-          </section>
-     );
+	return (
+		<section>
+			login
+		</section>
+	);
 };
    
 export default loginPage;

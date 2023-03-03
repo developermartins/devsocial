@@ -1,8 +1,8 @@
 const profilePage = () => {
   return (
-	<section>
-		profilePage
-	</section>
+		<section>
+			profilePage
+		</section>
   );
 };
 
