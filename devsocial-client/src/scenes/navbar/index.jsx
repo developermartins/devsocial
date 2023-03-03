@@ -1,10 +1,10 @@
-const homePage = () => {
+const navbar = () => {
     return (
       <section>
-          Homepage
+          navbar
       </section>
-    )
-  }
+    );
+};
   
-  export default homePage;
+export default navbar;
   
