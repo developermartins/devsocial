@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
 import { Formik } from "formik";
-import { registerUser } from "../../api/auth";
+import { loginUser, registerUser } from "../../api/auth";
 
 import * as yup from "yup";
 import DropZone from "react-dropzone";
@@ -69,8 +69,7 @@ const Form = () => {
     formData.append('picturePath', values.picture.name);
 
     const savedUserResponse = await registerUser(formData);
-    
-    // const savedUser = await savedUserResponse.json();
+
     onSubmitProps.resetForm();
 
     if (savedUserResponse.status === 201) {
@@ -80,25 +79,15 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
 
-    const loggedInResponse = await fetch(
-      "http://localhost:3001/auth/login",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      }
-    );
-    
-    const loggedIn = await loggedInResponse.json();
+    const loggedInResponse = await loginUser(values);
+
     onSubmitProps.resetForm();
 
-    console.log(loggedIn)
-
-    if (loggedIn) {
+    if (loggedInResponse.status === 200) {
       dispatch(
         setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
+          user: loggedInResponse.data.user,
+          token: loggedInResponse.data.token,
         })
       );
 
