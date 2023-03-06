@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
 import { Formik } from "formik";
+import { registerUser } from "../../api/auth";
 
 import * as yup from "yup";
 import DropZone from "react-dropzone";
@@ -67,18 +68,12 @@ const Form = () => {
 
     formData.append('picturePath', values.picture.name);
 
-    const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const savedUserResponse = await registerUser(formData);
     
-    const savedUser = await savedUserResponse.json();
+    // const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
 
-    if (savedUser) {
+    if (savedUserResponse.status === 201) {
       setPageType("login");
     };
   };
