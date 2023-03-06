@@ -35,6 +35,7 @@ const LoginPage = () => {
 				>
 					Welcome to devsocial!
 				</Typography>
+				<Form />
 			</Box>
 		</Box>
 	);
