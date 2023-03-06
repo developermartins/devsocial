@@ -42,6 +42,11 @@ const initialValuesRegister = {
   picture: "",
 };
 
+const initialValuesLogin = {
+  email: "",
+  password: "",
+};
+
 const Form = () => {
   return (
     <div>Form</div>
