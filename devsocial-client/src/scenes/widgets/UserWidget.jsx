@@ -8,6 +8,7 @@ import { Box, Typography, Divider, useTheme } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getUser } from '../../api/user';
 
 import UserImage from '../../components/UserImage';
 import FlexBetween from '../../components/FlexBetween';
@@ -22,5 +23,9 @@ const UserWidget = ({ userId, picturePath }) => {
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
 
-  
+  const getUserInfo = async () => {
+    const response = await getUser(userId, token);
+
+    
+  }
 };
