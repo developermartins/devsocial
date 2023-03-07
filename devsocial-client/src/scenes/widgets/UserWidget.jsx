@@ -31,7 +31,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!user) return null;
 
@@ -43,7 +43,7 @@ const UserWidget = ({ userId, picturePath }) => {
     viewedProfile,
     impressions,
     friends,
-  } = user;
+  } = user?.data;
 
   return (
     <WidgetWrapper>
