@@ -20,6 +20,7 @@ import {
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../state";
+import { createPost } from "../../api/posts";
 
 import FlexBetween from "../../components/FlexBetween";
 import Dropzone from "react-dropzone";
@@ -49,7 +50,11 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     };
 
-    
+    const response = await createPost(formData, token);
+
+    dispatch(setPosts(response.data));
+    setImage(null);
+    setPost("");
   };
 
   return (
