@@ -6,3 +6,9 @@ export const createPost = async (formData, token) => {
 
   return res;
 };
+
+export const getPosts = async (token) => {
+  const res = api.get(`posts`, { headers: { Authorization: `Bearer ${token}` } });
+
+  return res;
+};
