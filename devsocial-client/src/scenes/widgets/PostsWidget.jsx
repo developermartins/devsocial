@@ -14,13 +14,13 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const getFeedPosts = async () => {
     const response = await getPosts(token);
 
-    dispatch(setPosts({ posts: response }));
+    dispatch(setPosts({ posts: response.data }));
   };
 
   const getUserPosts = async () => {
     const response = await getUserPostsById(userId, token);
 
-    dispatch(setPosts({ posts: response }));
+    dispatch(setPosts({ posts: response.data }));
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      { posts.data?.map(
+      { posts?.map(
         ({
           _id,
           userId,
