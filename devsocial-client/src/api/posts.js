@@ -12,3 +12,9 @@ export const getPosts = async (token) => {
 
   return res;
 };
+
+export const getUserPostsById = async (userId, token) => {
+  const res = api.get(`${userId}/posts`, { headers: { Authorization: `Bearer ${token}` } });
+
+  return res;
+};
