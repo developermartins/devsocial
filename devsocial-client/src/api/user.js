@@ -7,7 +7,7 @@ export const getUser = async (userId, token) => {
 };
 
 export const addRemoveFriend = async (userId, friendId, token) => {
-  const res = api.patch(`users/${userId}/${friendId}`, { headers: { Authorization: `Bearer ${token}` } });
+  const res = api.patch(`users/${userId}/${friendId}`, '', { headers: { Authorization: `Bearer ${token}` } });
 
   return res;
 };
