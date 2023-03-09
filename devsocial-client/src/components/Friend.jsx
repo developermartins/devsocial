@@ -2,6 +2,7 @@ import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getFriend } from "../api/user";
 import { setFriends } from "../state";
 
 import FlexBetween from "./FlexBetween";
@@ -23,7 +24,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const isFriend = friends.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
-    
+    const response = await addRemoveFriend(_id, friendId, token);
+
+    dispatch(setFriends({ friends: response }));
   };
 
   return (
