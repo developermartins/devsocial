@@ -8,6 +8,7 @@ import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "state";
+import { likeOrDislikePost } from "../../api/posts";
 
 import FlexBetween from "../../components/FlexBetween";
 import Friend from "../../components/Friend";
@@ -33,6 +34,12 @@ const PostWidget = ({
   const { palette } = useTheme();
   const main = palette.neutral.main;
   const primary = palette.primary.main;
+
+  const patchLike = async () => {
+    const response = await likeOrDislikePost(JSON.stringify({ userId: loggedInUserId }), postId, token);
+
+    dispatch(setPost({ post: response.data }));
+  };
 
   return (
     <div>PostWidget</div>
