@@ -18,3 +18,9 @@ export const getUserPostsById = async (userId, token) => {
 
   return res;
 };
+
+export const likeOrDislikePost = async (userId, postId, token) => {
+  const res = api.get(`posts/${postId}/like`, userId, { headers: { Authorization: `Bearer ${token}` } });
+
+  return res;
+};
