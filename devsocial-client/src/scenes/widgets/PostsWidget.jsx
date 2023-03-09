@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../../api/posts";
+import { getPosts, getUserPostsById } from "../../api/posts";
 import { setPosts } from "../../state";
 
 import PostWidget from "./PostWidget";
@@ -18,7 +18,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   };
 
   const getUserPosts = async () => {
-    const response = await getPosts(token);
+    const response = await getUserPostsById(userId, token);
 
     dispatch({ posts: response });
   };
