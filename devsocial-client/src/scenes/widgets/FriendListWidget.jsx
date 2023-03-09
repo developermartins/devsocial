@@ -16,7 +16,7 @@ const FriendListWidget = ({ userId }) => {
   const getFriends = async () => {
     const response = await getUserFriends(userId, token);
 
-    useDispatch(setFriends({ friends: response.data }));
+    dispatch(setFriends({ friends: response.data }));
   };
 
   useEffect(() => {
