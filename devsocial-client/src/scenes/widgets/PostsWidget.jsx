@@ -23,6 +23,14 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     dispatch({ posts: response });
   };
 
+  useEffect(() => {
+    if (isProfile) {
+      getUserPosts();
+    } else {
+      getFeedPosts();
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div>PostsWidget</div>
   );
