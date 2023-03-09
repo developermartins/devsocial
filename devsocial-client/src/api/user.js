@@ -11,3 +11,9 @@ export const addRemoveFriend = async (userId, friendId, token) => {
 
   return res;
 };
+
+export const getUserFriends = async (userId, token) => {
+  const res = api.get(`users/${userId}/friends`, { headers: { Authorization: `Bearer ${token}` } });
+
+  return res;
+};
