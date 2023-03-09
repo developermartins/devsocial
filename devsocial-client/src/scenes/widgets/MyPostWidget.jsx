@@ -52,7 +52,7 @@ const MyPostWidget = ({ picturePath }) => {
 
     const response = await createPost(formData, token);
 
-    dispatch(setPosts(response.data));
+    dispatch(setPosts({ posts: response.data }));
     setImage(null);
     setPost("");
   };
