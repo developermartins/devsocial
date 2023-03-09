@@ -29,7 +29,7 @@ const PostWidget = ({
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
-  const isLiked = Boolean(likes[loggedInUserId]);
+  const isLiked = Boolean(likes[JSON.stringify(loggedInUserId)]);
   const likeCount = Object.keys(likes).length;
 
   const { palette } = useTheme();
@@ -66,7 +66,7 @@ const PostWidget = ({
       <FlexBetween mt="0.25rem">
         <FlexBetween gap="1rem">
 
-          <FlexBetween gap="3rem">
+          <FlexBetween gap="0.3rem">
             <IconButton onClick={patchLike}>
               { isLiked ? (
                 <FavoriteOutlined sx={{ color: primary }} />
