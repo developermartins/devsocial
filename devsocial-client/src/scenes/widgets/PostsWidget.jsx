@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts, getUserPostsById } from "../../api/posts";
-import { setPosts } from "../../state";
+import { setPosts } from "../../state/";
 
 import PostWidget from "./PostWidget";
 
@@ -14,13 +14,13 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const getFeedPosts = async () => {
     const response = await getPosts(token);
 
-    dispatch({ posts: response });
+    dispatch(setPosts({ posts: response }));
   };
 
   const getUserPosts = async () => {
     const response = await getUserPostsById(userId, token);
 
-    dispatch({ posts: response });
+    dispatch(setPosts({ posts: response }));
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      { posts.map(
+      { posts.data?.map(
         ({
           _id,
           userId,
