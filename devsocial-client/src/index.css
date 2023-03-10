@@ -8,3 +8,13 @@ body,
   width: 100%;
   font-family: "Rubik", sans-serif;
 }
+
+::-webkit-scrollbar {
+  background-color: #000;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #858585;
+  border-radius: 6px;
+}
