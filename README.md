@@ -1,7 +1,23 @@
 # Wellcome to DevSocial client repository!▶️
 <br />
 
+<img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/login.png" />
 
+<br />
+
+<img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/register.png" />
+
+<br />
+
+<img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/home.png" />
+
+<br />
+
+<img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/post.png" />
+
+<br />
+
+<img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/user-pg.png" />
 
 <br />
 
