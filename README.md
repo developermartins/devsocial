@@ -1,4 +1,4 @@
-# Wellcome to DevSocial client repository!▶️
+# Wellcome to DevSocial client repository!
 <br />
 
 <img src="https://raw.githubusercontent.com/devLucasmarts/devsocial/6824c37a9ddff222af96ce33327c810f21541857/devsocial-client/public/assets/login.png" />
