@@ -42,7 +42,7 @@ git clone https://github.com/devLucasmarts/devsocial.git
 
 <br />
 
-### Access devtube directory 📂
+### Access devSocial directory 📂
 
 <pre>
 cd devsocial-client
